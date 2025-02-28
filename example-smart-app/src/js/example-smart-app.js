@@ -29,8 +29,8 @@
           var gender = patient.gender;
           var fname = '';
           var lname = '';
-          var careplan = '';
-          careplan = JSON.stringify(patient,undefined,2);
+          var careplan = 'value is this';
+        
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
