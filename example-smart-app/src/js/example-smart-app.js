@@ -31,7 +31,15 @@
           var lname = '';
           var careplan = '';
           careplan = JSON.stringify(patient,undefined,2);
-          a =  smart.patient.api.fetchAll; 
+          alert("1");
+          a =  smart.patient.api.fetchAll({
+                    type: 'DocumentReference',
+                    query: {
+                      code: {
+                        
+                      }
+                    }
+                  });
           alert(a);
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
