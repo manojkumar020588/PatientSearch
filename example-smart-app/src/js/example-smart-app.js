@@ -31,7 +31,7 @@
           var lname = '';
           var careplan = '';
           
-          careplan = JSON.stringify(smart,undefined,2);  
+          careplan = Object.getOwnPropertyNames(smart);  
           
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
