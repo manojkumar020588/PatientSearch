@@ -30,7 +30,11 @@
           var fname = '';
           var lname = '';
           var careplan = '';
-          careplan = JSON.stringify(patient,undefined,2);        
+          
+          if (smart.hasOwnProperty('documentreference')) {
+          
+            careplan = JSON.stringify(smart.documentreference,undefined,2);  
+          }
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
