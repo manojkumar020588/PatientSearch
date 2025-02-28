@@ -31,9 +31,9 @@
           var lname = '';
           var careplan = '';
           careplan = JSON.stringify(patient,undefined,2);
-          alert("5");
+          alert("testing");
           a =  Object.getOwnPropertyNames(smart));
-          alert(JSON.stringify(a,undefined,2));
+          alert(a);
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
