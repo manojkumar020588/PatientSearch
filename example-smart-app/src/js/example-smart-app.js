@@ -30,9 +30,10 @@
           var fname = '';
           var lname = '';
           var careplan = '';
-          
-          careplan = Object.getOwnPropertyNames(smart);  
-          
+          alert("before prop name");
+          careplan = Object.getOwnPropertyNames(smart); 
+          alert(careplan);
+          alert("after prop name");
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
