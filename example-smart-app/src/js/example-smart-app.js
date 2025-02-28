@@ -23,11 +23,13 @@
                   });
 
         $.when(pt, obv).fail(onError);
+        if (smart.hasOwnProperty('patient')) {
+          var careplan = smart.careplan;
 
+        
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
-
           var fname = '';
           var lname = '';
 
@@ -47,6 +49,7 @@
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
+          p.careplan=careplan;
           p.height = getQuantityValueAndUnit(height[0]);
 
           if (typeof systolicbp != 'undefined')  {
@@ -59,7 +62,7 @@
 
           p.hdl = getQuantityValueAndUnit(hdl[0]);
           p.ldl = getQuantityValueAndUnit(ldl[0]);
-
+          
           ret.resolve(p);
         });
       } else {
@@ -83,6 +86,7 @@
       diastolicbp: {value: ''},
       ldl: {value: ''},
       hdl: {value: ''},
+      careplan: {value: ''},
     };
   }
 
@@ -126,6 +130,7 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
+    $('#careplan').html(p.careplan);
   };
 
 })(window);
