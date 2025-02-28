@@ -30,10 +30,9 @@
           var fname = '';
           var lname = '';
           var careplan = '';
-          alert("before prop name");
-          careplan = Object.getOwnPropertyNames(smart); 
-          alert(careplan);
-          alert("after prop name");
+          careplan = JSON.stringify(patient,undefined,2);
+          a = Object.getOwnPropertyNames(smart.patient); 
+          alert(a);
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
