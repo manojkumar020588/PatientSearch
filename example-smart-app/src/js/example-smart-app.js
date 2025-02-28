@@ -31,7 +31,7 @@
           var lname = '';
           var careplan = '';
           careplan = JSON.stringify(patient,undefined,2);
-          alert("2");
+          alert("3");
           a =  smart.patient.api.fetchAll({
                     type: 'DocumentReference',
                     query: {
