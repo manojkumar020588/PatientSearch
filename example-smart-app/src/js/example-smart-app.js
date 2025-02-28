@@ -23,9 +23,9 @@
                   });
 
         $.when(pt, obv).fail(onError);
-        if (smart.hasOwnProperty('patient')) {
+        if (smart.hasOwnProperty('careplan')) {
           var careplan = smart.careplan;
-
+        }
         
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
