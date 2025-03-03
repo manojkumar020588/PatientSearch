@@ -21,25 +21,15 @@
                       }
                     }
                   });
-        var documentReference = smart.patient.api.fetchAll({
-                                  type: 'MedicationOrder',
-                                  query: {
-                                    _count: 4
-                                  }
-                                });
         data=''
-        fetch('https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?patient=12724066&date=ge2020-01-01T22:22:16.270Z')
+        alert("hitting");
+        fetch('https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4822366')
         .then(response => response.json())
         .then(data => console.log(data));
         alert(data);
-        alert(documentReference);
-        $.when(pt, obv).fail(onError);
-        $.when(pt, documentReference).fail(onError);
-        var dReference = '';
-        $.when(pt, documentReference).done(function(patient, documentReference) {
-         dReference=documentReference;
-           });
+
         
+        $.when(pt, obv).fail(onError);
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
@@ -47,7 +37,7 @@
           var lname = '';
           var careplan = '';
          
-          careplan= dReference;
+          careplan= data;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
