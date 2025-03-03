@@ -22,7 +22,7 @@
                     }
                   });
         var documentReference = smart.patient.api.fetchAll({
-                                  type: 'DocumentReference',
+                                  type: 'MedicationOrder',
                                   query: {
                                     _count: 4
                                   }
