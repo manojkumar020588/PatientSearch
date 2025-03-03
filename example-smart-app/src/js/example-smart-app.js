@@ -21,14 +21,7 @@
                       }
                     }
                   });
-        data=''
-        alert("hitting");
-        fetch('https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4822366')
-        .then(response => response.json())
-        .then(data => console.log(data));
-        alert(data);
-
-        
+               
         $.when(pt, obv).fail(onError);
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
@@ -37,7 +30,6 @@
           var lname = '';
           var careplan = '';
          
-          careplan= data;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
