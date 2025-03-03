@@ -38,31 +38,6 @@
         </tr>
        
       </table>
-      <h2>Observation Resource</h2>
-      <table>
-        
-        <tr>
-          <th>Height:</th>
-          <td id='height'></td>
-        </tr>
-        <tr>
-          <th>Systolic Blood Pressure:</th>
-          <td id='systolicbp'></td>
-
-        </tr>
-        <tr>
-          <th>Diastolic Blood Pressure:</th>
-          <td id='diastolicbp'></td>
-        </tr>
-        <tr>
-          <th>LDL:</th>
-          <td id='ldl'></td>
-        </tr>
-        <tr>
-          <th>HDL:</th>
-          <td id='hdl'></td>
-        </tr>
-      </table>
       <br>
       <a href="launch-patient.html">
       <button>Back</button>
@@ -85,26 +60,6 @@
                         if (typeof pt.name[0] !== 'undefined') {
                           var fname = pt.name[0].given.join(' ');
                           var lname = pt.name[0].family.join(' ');
-                          alert(fname);
-                          alert( lname);
-                          alert(pt.gender);
-                          alert(pt.birthDate);
-                          var obv = pt.api.fetchAll({
-                            type: 'Observation',
-                            query: {
-                              code: {
-                                $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
-                                      'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-                                      'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
-                              }
-                            }
-                          });
-                          var byCodes = smart.byCodes(obv, 'code');
-                          var systolicbp = getBloodPressureValue(byCodes('55284-4'),'8480-6');
-                          var diastolicbp = getBloodPressureValue(byCodes('55284-4'),'8462-4');
-                          var hdl = byCodes('2085-9');
-                          var ldl = byCodes('2089-1');
-                          alert(diastolicbp);
                       }
                     },
                     function(error) {
