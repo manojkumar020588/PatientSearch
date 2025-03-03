@@ -9,8 +9,7 @@
 
     function onReady(smart)  {
       var a ='';
-      FHIR.oauth2.ready().then(function(client) {
-                
+                     
                 // Get MedicationRequests for the selected patient
                var a= client.request("/MedicationRequest?patient=12724067" , {
                     resolveReferences: [ "medicationReference" ],
@@ -23,7 +22,7 @@
                     alert(JSON.stringify(a, null, 4))
                 );
 
-            }).catch(console.error);
+       
      
       
       if (smart.hasOwnProperty('patient')) {
