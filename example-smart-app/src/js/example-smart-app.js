@@ -22,12 +22,12 @@
                     }
                   });
         var documentReference = smart.patient.api.fetchAll({
-          type: 'DocumentReference',
-          query: {
-            _count: 4
-          }
-        });
-        
+                                  type: 'DocumentReference',
+                                  query: {
+                                    _count: 4
+                                  }
+                                });
+        alert(documentReference);
         $.when(pt, obv).fail(onError);
         $.when(pt, documentReference).fail(onError);
         var dReference = '';
