@@ -27,6 +27,11 @@
                                     _count: 4
                                   }
                                 });
+        data=''
+        fetch('https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?patient=12724066&date=ge2020-01-01T22:22:16.270Z')
+        .then(response => response.json())
+        .then(data => console.log(data));
+        alert(data);
         alert(documentReference);
         $.when(pt, obv).fail(onError);
         $.when(pt, documentReference).fail(onError);
