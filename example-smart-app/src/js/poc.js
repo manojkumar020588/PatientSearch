@@ -20,7 +20,7 @@
                           p.fname = fname;
                           p.lname = lname;
                           var p = defaultPatient();
-                          p.birthdate = pt.birthDate;
+                          p.birthdate = pt;
                           p.gender = gender;
                           p.fname = fname;
                           p.lname = lname;
