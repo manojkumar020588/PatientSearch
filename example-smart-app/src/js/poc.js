@@ -20,7 +20,7 @@
             return data
         })
 
-        var response = await obs.json()
+        var response = obs.json()
         console.log("All value",response)
      
       
