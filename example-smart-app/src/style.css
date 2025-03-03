@@ -23,10 +23,17 @@ body {
   display: none;
 }
 
-h2,h1,h3{
+h2,h3{
     font-family: calibri;
     color: Green !important;
 }
+
+h1{
+    font-family: calibri;
+    font-size: 30 px;
+    color: Green !important;
+}
+
 .spinner {
   margin: 100px auto 0;
   width: 70px;
