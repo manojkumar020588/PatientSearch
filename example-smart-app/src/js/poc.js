@@ -12,9 +12,7 @@
        
         var obs=fetch(smart.state.serverUrl+"/Immunization?patient="+smart.patient,{
           headers:{
-            "Accept":"application/json+fhir",
-            "Authorization":"Bearer "
-            +smart.state.tokenResponse.access_token
+            "Accept":"application/json+fhir"
           }
           }).then(function(data){
             return data
