@@ -8,7 +8,6 @@
     }
 
     FHIR.oauth2.ready().then(function(client) {
-      alert("s");
      client.patient.read().then(
                     function(pt) {
                           var fname = pt.name[0].given.join(' ');
@@ -20,7 +19,6 @@
                           p.gender = gender;
                           p.fname = fname;
                           p.lname = lname;
-                          alert(lname);
                           var p = defaultPatient();
                           p.birthdate = pt.birthDate;
                           p.gender = gender;
