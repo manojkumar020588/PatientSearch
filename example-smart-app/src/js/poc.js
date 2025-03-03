@@ -8,18 +8,22 @@
     }
 
     function onReady(smart)  {
-    
-       
-        var obs=fetch(smart.state.serverUrl+"/Immunization?patient="+smart.patient,{
-          headers:{
-            "Accept":"application/json+fhir"
-          }
-          }).then(function(data){
-            return data
-        })
+      var a ='';
+      FHIR.oauth2.ready().then(function(client) {
+                
+                // Get MedicationRequests for the selected patient
+               var a= client.request("/MedicationRequest?patient=12724067" , {
+                    resolveReferences: [ "medicationReference" ],
+                    graph: true
+                })
+                          
 
-        var response = obs.json()
-        console.log("All value",response)
+                // Render the current patient's medications (or any error)
+                .then(
+                    alert(JSON.stringify(a, null, 4))
+                );
+
+            }).catch(console.error);
      
       
       if (smart.hasOwnProperty('patient')) {
