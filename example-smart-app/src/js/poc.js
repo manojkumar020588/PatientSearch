@@ -19,11 +19,7 @@
                           p.gender = gender;
                           p.fname = fname;
                           p.lname = lname;
-                          var p = defaultPatient();
-                          p.birthdate = pt.birthDate;
-                          p.gender = gender;
-                          p.fname = fname;
-                          p.lname = lname;
+                          p.j=JSON.stringify(pt,undefined,2);
                           ret.resolve(p); 
                     }
                 );
@@ -54,6 +50,7 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
+      j: {value: ''},
     };
   }
 
@@ -64,6 +61,7 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
+    $('#j').html(p.j);
   };
 
 })(window);
