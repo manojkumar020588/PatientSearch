@@ -89,7 +89,7 @@
                           alert( lname);
                           alert(pt.gender);
                           alert(pt.birthDate);
-                          var obv = smart.patient.api.fetchAll({
+                          var obv = pt.api.fetchAll({
                             type: 'Observation',
                             query: {
                               code: {
