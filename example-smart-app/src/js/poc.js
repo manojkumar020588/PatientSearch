@@ -16,14 +16,11 @@
                           var gender = pt.gender;
                          
                           var p = defaultPatient();
-                          p.birthdate = patient.birthDate;
+                          p.birthdate = pt.birthDate;
                           p.gender = gender;
                           p.fname = fname;
                           p.lname = lname;
                           alert(lname);
-                    },
-                    function(error) {
-                        document.getElementById("patient").innerText = error.stack;
                     }
                 );
                 
