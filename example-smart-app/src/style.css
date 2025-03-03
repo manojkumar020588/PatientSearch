@@ -1,5 +1,17 @@
-th, td {
-  padding: 5px;
+th {
+  font-family: calibri;
+  text-align: left;
+}
+
+
+a{
+  padding-left: 50 px;
+  color: brown;
+}
+
+td {
+  font-family: calibri;
+  color:gray;
   text-align: left;
 }
 
