@@ -26,14 +26,11 @@
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
     <script>
 
-      function getParameterByName(name){
+   
+      window.onload= function(){
         const urlParams = new URLSearchParams(window.location.search);
         alert(urlParams)
-        alert(urlParams.get(name))
-        return urlParams.get(name);
-      }
-      window.onload= function(){
-        const selectedOption=getParameterByName('optionid');
+        const selectedOption=urlParams.get('optionid')
         alert(selectedOption)
       }
       
