@@ -29,9 +29,7 @@
    
       window.onload= function(){
         const urlParams = new URLSearchParams(window.location.search);
-        alert(urlParams)
         const selectedOption=urlParams.get('PAT_PersonId')
-        alert(selectedOption)
       }
       
       FHIR.oauth2.authorize({
