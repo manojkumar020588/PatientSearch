@@ -8,6 +8,22 @@
     }
 
     function onReady(smart)  {
+    
+       
+        var obs=await fetch(smart.state.serverUrl+"/Immunization?patient="+smart.patient,{
+          headers:{
+            "Accept":"application/json+fhir",
+            "Authorization":"Bearer "
+            +smart.state.tokenResponse.access_token
+          }
+          }).then(function(data){
+            return data
+        })
+
+        var response = await obs.json()
+        console.log("All value",response)
+     
+      
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
