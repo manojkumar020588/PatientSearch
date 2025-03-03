@@ -28,6 +28,8 @@
 
       function getParameterByName(name){
         const urlParams = new URLSearchParams(window.location.search);
+        alert(urlParams)
+        alert(urlParams.get(name))
         return urlParams.get(name);
       }
       window.onload= function(){
