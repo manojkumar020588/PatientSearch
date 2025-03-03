@@ -20,7 +20,7 @@
       async function doRequests(){
         var obs=await fetch(myApp.smart.state.serverUrl+"/Immunization?patient="+myApp.smart.patient.id,{
           headers:{
-            "Accept:{"application/json+fhir",
+            "Accept":"application/json+fhir",
             "Authorization":"Bearer "
             +myApp.smart.state.tokenResponse.access_token
           }
@@ -45,7 +45,7 @@
     </a>
     <br>
     <a href='https://smart.cerner.com/smart/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationOrder?patient=12724065&status=active'>
-      medOrder4
+      medOrder5
     </a>
   </body>
 </html>
