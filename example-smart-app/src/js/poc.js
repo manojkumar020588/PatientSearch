@@ -10,7 +10,7 @@
     function onReady(smart)  {
     
        
-        var obs=await fetch(smart.state.serverUrl+"/Immunization?patient="+smart.patient,{
+        var obs=fetch(smart.state.serverUrl+"/Immunization?patient="+smart.patient,{
           headers:{
             "Accept":"application/json+fhir",
             "Authorization":"Bearer "
