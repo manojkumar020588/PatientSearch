@@ -13,8 +13,6 @@
                 // Render the current patient (or any error)
                 client.patient.read().then(
                     function(pt) {
-                        document.getElementById("patient").innerText = JSON.stringify(pt, null, 4);
-                        if (typeof pt.name[0] !== 'undefined') {
                           var fname = pt.name[0].given.join(' ');
                           var lname = pt.name[0].family.join(' ');
                           var gender = pt.gender;
@@ -24,7 +22,7 @@
                           p.gender = gender;
                           p.fname = fname;
                           p.lname = lname;
-                      }
+                          alert(lname);
                     },
                     function(error) {
                         document.getElementById("patient").innerText = error.stack;
