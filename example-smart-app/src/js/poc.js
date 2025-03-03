@@ -9,10 +9,7 @@
 
     function onReady(smart)  {
       alert("do");
-      const client = FHIR.client("https://r3.smarthealthit.org");
-      client.request("Patient").then(console.log).catch(console.error);
-      alert("client- ",client );
-      alert("client1- ",client.request("Patient") );
+      
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
