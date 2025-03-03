@@ -21,6 +21,12 @@
                           p.fname = fname;
                           p.lname = lname;
                           alert(lname);
+                          var p = defaultPatient();
+                          p.birthdate = pt.birthDate;
+                          p.gender = gender;
+                          p.fname = fname;
+                          p.lname = lname;
+                          ret.resolve(p); 
                     }
                 );
                 
@@ -39,15 +45,7 @@
                 });
 
             }).catch(console.error);
-
-
-            var p = defaultPatient();
-            p.birthdate = pt.birthDate;
-            p.gender = gender;
-            p.fname = fname;
-            p.lname = lname;
-            ret.resolve(p); 
-                           
+                   
     return ret.promise();
 
   };
