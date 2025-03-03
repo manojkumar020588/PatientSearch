@@ -8,22 +8,8 @@
     }
 
     function onReady(smart)  {
-      var a ='';
-                     
-                // Get MedicationRequests for the selected patient
-               var a= client.request("/MedicationRequest?patient=12724067" , {
-                    resolveReferences: [ "medicationReference" ],
-                    graph: true
-                })
-                          
-
-                // Render the current patient's medications (or any error)
-                .then(
-                    alert(JSON.stringify(a, null, 4))
-                );
-
-       
-     
+      const client = FHIR.client("https://r3.smarthealthit.org");
+      client.request("Patient").then(console.log).catch(console.error);
       
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
