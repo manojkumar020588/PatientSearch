@@ -9,6 +9,19 @@ a{
   color: brown;
 }
 
+button {
+    background-color: purple;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 10px;
+    font-family: monospace;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
 td {
   font-family: calibri;
   color:gray;
