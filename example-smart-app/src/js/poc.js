@@ -20,7 +20,7 @@
                           p.fname = fname;
                           p.lname = lname;
                           var p = defaultPatient();
-                          p.birthdate = pt;
+                          p.birthdate = pt.birthDate;
                           p.gender = gender;
                           p.fname = fname;
                           p.lname = lname;
@@ -29,7 +29,7 @@
                 );
                 
                 // Get MedicationRequests for the selected patient
-                client.request("/MedicationRequest=Patient/2e27c71e-30c8-4ceb-8c1c-5641e066c0a4", {
+                client.request("/MedicationRequest/Patient/2e27c71e-30c8-4ceb-8c1c-5641e066c0a4", {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
                 })
