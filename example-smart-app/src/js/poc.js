@@ -7,11 +7,9 @@
       ret.reject();
     }
 
-    function onReady(smart)  {
-      FHIR.oauth2.ready().then(function(client) {
-                
-                // Render the current patient (or any error)
-                client.patient.read().then(
+    FHIR.oauth2.ready().then(function(client) {
+      alert("s");
+     client.patient.read().then(
                     function(pt) {
                           var fname = pt.name[0].given.join(' ');
                           var lname = pt.name[0].family.join(' ');
@@ -51,13 +49,8 @@
             p.gender = gender;
             p.fname = fname;
             p.lname = lname;
-
-        
-          
-            ret.resolve(p);
-       
-     
-      }
+            ret.resolve(p); 
+                           
     return ret.promise();
 
   };
