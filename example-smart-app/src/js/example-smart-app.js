@@ -21,17 +21,28 @@
                       }
                     }
                   });
-
+        var documentReference = smart.patient.api.fetchAll({
+          type: 'DocumentReference',
+          query: {
+            _count: 4
+          }
+        });
+        
         $.when(pt, obv).fail(onError);
-       
+        $.when(pt, documentReference).fail(onError);
+        var dReference = '';
+        $.when(pt, documentReference).done(function(patient, documentReference) {
+         dReference=documentReference;
+           });
+        
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           var fname = '';
           var lname = '';
           var careplan = '';
-          careplan = JSON.stringify(patient,undefined,2);
-          
+         
+          careplan= dReference;
           if (typeof patient.name[0] !== 'undefined') {
             fname = patient.name[0].given.join(' ');
             lname = patient.name[0].family.join(' ');
