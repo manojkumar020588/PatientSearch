@@ -11,6 +11,10 @@ body {
   display: none;
 }
 
+h2,h1,h3{
+    font-family: calibri;
+    color: Green !important;
+}
 .spinner {
   margin: 100px auto 0;
   width: 70px;
