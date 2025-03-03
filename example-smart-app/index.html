@@ -82,6 +82,11 @@
                 client.patient.read().then(
                     function(pt) {
                         document.getElementById("patient").innerText = JSON.stringify(pt, null, 4);
+                        if (typeof patient.name[0] !== 'undefined') {
+                          fname = patient.name[0].given.join(' ');
+                          lname = patient.name[0].family.join(' ');
+                          alert(fname, lname);
+          }
                     },
                     function(error) {
                         document.getElementById("patient").innerText = error.stack;
