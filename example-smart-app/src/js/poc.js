@@ -29,7 +29,7 @@
                 );
                 
                 // Get MedicationRequests for the selected patient
-                client.request("/MedicationRequest/" + client.patient.id, {
+                client.request("/MedicationRequest=Patient/2e27c71e-30c8-4ceb-8c1c-5641e066c0a4", {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
                 })
