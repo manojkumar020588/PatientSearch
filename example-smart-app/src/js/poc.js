@@ -25,12 +25,12 @@
                 );
                 FHIR.client("https://r2.smarthealthit.org")
                 .request("Binary/smart-Binary-1-document")
-                .then(res => res.blob())
+                .then(alert(res.blob())
                 // Get MedicationRequests for the selected patient
              
-                const getPath = FHIR.client("https://r3.smarthealthit.org").getPath;
+                const getPath = FHIR.client("https://r2.smarthealthit.org").getPath;
                 FHIR.client("https://r2.smarthealthit.org")
-                .request("/MedicationRequest?Patient=smart-1642068", {
+                .request("/Medication?Patient=smart-1642068", {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
                 }).then(data => data.entry.map(item => getMedicationName(
