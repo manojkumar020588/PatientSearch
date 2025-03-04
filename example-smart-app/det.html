@@ -21,7 +21,6 @@
                 .then(client => {
                     // Fetch DocumentReference resources for the current patient
                     tok=client.state.tokenResponse.access_token;
-                    console.log("1st-",tok);
                     return client.request(`DocumentReference?patient=${client.patient.id}`, {
                         pageLimit: 1, // Limit the number of results
                         flat: true    // Simplify the response structure
@@ -29,14 +28,13 @@
                 })
                 .then(data => {
                     // Display the documents
-                    console.log("2st-",tok);
                     const output = document.getElementById('output');
                     output.textContent = JSON.stringify(data, null, 2);
                     console.log('Documents:', data);
-                    console.log("3st-",tok);
                     // Optionally, fetch the content of each document
                     data.forEach(documentRef => {
                         const documentUrl = documentRef.content[0].attachment.url;
+                        console.log('documentUrl:', documentUrl);
                         fetch(documentUrl, {
                             headers: {
                                 'Authorization': `Bearer ${tok}` // Include the access token
