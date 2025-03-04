@@ -34,12 +34,11 @@
                 }).then(data => data.entry.map(item => getMedicationName(
                     getPath(item, "resource.medicationCodeableConcept.coding") ||
                     getPath(item, "resource.medicationReference.code.coding")
-                )))
+                )));
                 alert(med);
-                med=data.entry;
-                alert(med);
-                return data.entry;
-                });
+                
+                return med;
+        
 
             }).catch(console.error);
                    
