@@ -22,17 +22,16 @@
                           ret.resolve(p); 
                     }
                 );
-                var obv = client.patient.api.fetchAll({
-                    type: 'Observation',
-                    query: {
-                      code: {
-                        $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
-                              'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-                              'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
-                      }
-                    }
+                
+                  client.request("Observation?patient=" + client.patient.id,{
+                    pageLimit:10,
+                    flat:true
+                  }).then(data=>{
+                    console.log('Observation:',data)
+                  }).catch(error=>{
+                    console.error('Error:',error);
                   });
-                  alert("obv- ",obv)
+                  
       
                 // Get MedicationRequests for the selected patient
                 const getPath = FHIR.client("https://r2.smarthealthit.org").getPath;
