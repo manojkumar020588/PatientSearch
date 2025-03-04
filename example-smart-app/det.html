@@ -37,7 +37,7 @@
                         console.log('documentUrl:', documentUrl);
                         fetch(documentUrl, {
                             headers: {
-                                'Accept': 'application/pdf'
+                                'Accept': 'application/pdf',
                                 'Authorization': `Bearer ${tok}` // Include the access token
                             }
                         })
