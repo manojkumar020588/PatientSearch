@@ -25,9 +25,9 @@
                 );
                 
                 // Get MedicationRequests for the selected patient
-                const client  = new FHIR.client("https://r3.smarthealthit.org");
-                const getPath = client.getPath;
-                client.request("/MedicationRequest?Patient=smart-1642068", {
+                const client1  = new FHIR.client("https://r3.smarthealthit.org");
+                const getPath = client1.getPath;
+                client1.request("/MedicationRequest?Patient=smart-1642068", {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
                 }).then(data => data.entry.map(item => getMedicationName(
