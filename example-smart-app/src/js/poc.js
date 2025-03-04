@@ -25,17 +25,17 @@
               
                 // Get MedicationRequests for the selected patient
                 const getPath = FHIR.client("https://r2.smarthealthit.org").getPath;
-                med='';
-                FHIR.client("https://r2.smarthealthit.org")
+                
+                med=FHIR.client("https://r2.smarthealthit.org")
                 .request("/Medication?_id=" + client.patient.id, {
-                    resolveReferences: [ "medicationReference" ],
+                    resolveReferences: [ "medication" ],
                     graph: true
                 }).then(data => data.entry.map(item => getMedicationName(
                   getPath(item, "resource.medicationCodeableConcept.coding") ||
                   getPath(item, "resource.medicationReference.code.coding")
                   ))).then(med=>JSON.stringify(data, null, 4));
-                alert(med);
-                alert(data);
+                alert("a",med);
+                alert("b",data);
                 return med;
             }).catch(console.error);             
     return ret.promise();
