@@ -26,11 +26,14 @@
                           }).then(data=>{
                             console.log('doc ref:',data);
                             docr=data;
+                            p.docr=JSON.stringify(docr,undefined,2);
+                            ret.resolve(p); 
                           }).catch(error=>{
                             console.error('Error:',error);
+                            p.docr=JSON.stringify(docr,undefined,2);
+                            ret.resolve(p); 
                           });
-                          p.docr=JSON.stringify(docr,undefined,2);
-                          ret.resolve(p); 
+                          
                     }
                 );
                                      
