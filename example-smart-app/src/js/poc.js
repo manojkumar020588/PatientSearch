@@ -20,21 +20,7 @@
                           p.lname = lname;
                           p.j=JSON.stringify(pt,undefined,2);
 
-                          pt.api.search({type: "DocumentReference"}) //.where.typeIn(['report','note'])
-                          .then(function(r) {
-                              var docs = r.data.entry;
-                              if (docs.length > 0) {
-                                  docs.forEach(function(doc){
-                                      startingpoint = startingpoint.pipe(function() {
-                                          return $.when(smart.fetchBinary(doc.resource.content[0].attachment.url)).then(function (blob) {
-                                              alert(doc_list, doc.resource.description, blob);
-                                          });
-                                      });
-                                  });
-                              } else {
-                                  alert("<li><h3>No documents found</h3></li>");
-                              }
-                          });
+                         
 
                       
                           ret.resolve(p); 
