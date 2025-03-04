@@ -30,7 +30,7 @@
              
                 const getPath = FHIR.client("https://r2.smarthealthit.org").getPath;
                 FHIR.client("https://r2.smarthealthit.org")
-                .request("/Medication?id=12724067", {
+                .request("/Medication?_id=12724067", {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
                 }).then(data => data.entry.map(item => getMedicationName(
