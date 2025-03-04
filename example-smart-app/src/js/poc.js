@@ -31,11 +31,13 @@
                     URL.createObjectURL(blob);
                     console.log('doc:',URL.createObjectURL(blob));
                      });
+                  
+                  var docr='No document reference(s) found!';
                   client.request("DocumentReference?patient=" + client.patient.id,{
-                    pageLimit:1,
+                    pageLimit:3,
                     flat:true
                   }).then(data=>{
-                    console.log('Observation:',data)
+                    docr=JSON.stringify(data,undefined,2);
                   }).catch(error=>{
                     console.error('Error:',error);
                   });
@@ -53,10 +55,7 @@
             }).catch(console.error);             
     return ret.promise();
   };
-  function getMedicationName(medCodings = []) {
-    var coding = medCodings.find(c => c.system === rxnorm);
-    return coding && coding.display || "Unnamed Medication(TM)";
-  }
+ 
   function defaultPatient(){
     return {
       fname: {value: ''},
@@ -74,7 +73,7 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#med').html(med);
+    $('#docr').html(docr);
     $('#j').html(p.j);
   };
 
