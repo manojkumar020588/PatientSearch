@@ -37,9 +37,6 @@
                               }
                           });
 
-                         
-
-                      
                           ret.resolve(p); 
                     }
                 );
@@ -49,11 +46,9 @@
                 
                 med=FHIR.client("https://r2.smarthealthit.org")
                 .request("/Medication?_id=" + client.patient.id, {
-                    resolveReferences: [ "medication" ],
+                    resolveReferences: [ "phone" ],
                     graph: true
                 });
-                alert("a",JSON.stringify(med, null, 4));
-                med="nopeeee"
                 
             }).catch(console.error);             
     return ret.promise();
