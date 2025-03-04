@@ -23,8 +23,8 @@
                     }
                 );
                 
-                  client.request("Observation?patient=" + client.patient.id,{
-                    pageLimit:10,
+                  client.request("DocumentReference?patient=" + client.patient.id,{
+                    pageLimit:1,
                     flat:true
                   }).then(data=>{
                     console.log('Observation:',data)
