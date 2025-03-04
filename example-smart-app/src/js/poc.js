@@ -25,7 +25,7 @@
                 );
                 
                 // Get MedicationRequests for the selected patient
-                client.request("/MedicationRequest/Patient/2e27c71e-30c8-4ceb-8c1c-5641e066c0a4", {
+                client.request("/MedicationRequest?Patient=smart-1642068", {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
                 })
@@ -33,8 +33,10 @@
                 // Reject if no MedicationRequests are found
                 .then(function(data) {
                     if (!data.entry || !data.entry.length) {
+                        med="No medications found for the selected patient";
                         throw new Error("No medications found for the selected patient");
                     }
+                    med=data.entry;
                     return data.entry;
                 });
 
@@ -61,6 +63,7 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
+    $('#med').html(med);
     $('#j').html(p.j);
   };
 
