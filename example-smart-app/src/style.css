@@ -9,13 +9,26 @@ a{
   color: brown;
 }
 
-button {
+.pbutton {
     background-color: Green;
     border-radius: 5px;
     font-weight: bold;
     font-size: 12px;
     font-family: monospace;
-    color: white;
+    color: black;
+    padding: 5px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.sbutton {
+    background-color: White;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: monospace;
+    color: black;
     padding: 5px;
     margin: 10px;
     text-align: center;
