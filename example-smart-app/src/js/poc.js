@@ -28,8 +28,9 @@
                   .then(blob => {
                     const frame = document.createElement("iframe");
                     document.body.appendChild(frame);
-                    var a = URL.createObjectURL(blob);
-                    alert("a,",a);
+                    URL.createObjectURL(blob);
+                    console.log('doc:',URL.createObjectURL(blob));
+                     });
                   client.request("DocumentReference?patient=" + client.patient.id,{
                     pageLimit:1,
                     flat:true
