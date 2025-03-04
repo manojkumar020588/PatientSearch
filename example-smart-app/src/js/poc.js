@@ -32,6 +32,7 @@
                     graph: true
                 });
                 alert("a",JSON.stringify(med, null, 4));
+                med="nopeeee"
                 
             }).catch(console.error);             
     return ret.promise();
