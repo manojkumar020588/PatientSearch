@@ -22,7 +22,14 @@
                           ret.resolve(p); 
                     }
                 );
-                
+                   FHIR.client("https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/")
+                  .request("Binary/XR-206940587")
+                  .then(res => res.blob())
+                  .then(blob => {
+                    const frame = document.createElement("iframe");
+                    document.body.appendChild(frame);
+                    var a = URL.createObjectURL(blob);
+                    alert("a,",a);
                   client.request("DocumentReference?patient=" + client.patient.id,{
                     pageLimit:1,
                     flat:true
