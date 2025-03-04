@@ -19,24 +19,6 @@
                           p.fname = fname;
                           p.lname = lname;
                           p.j=JSON.stringify(pt,undefined,2);
-                          alert("before");
-                          client.patient.api.search({type: "DocumentReference"}) //.where.typeIn(['report','note'])
-                          .then(function(r) {
-                              var docs = r.data.entry;
-                              alert("doc length is-",docs.length);
-                              if (docs.length > 0) {
-                                  docs.forEach(function(doc){
-                                      startingpoint = startingpoint.pipe(function() {
-                                          return $.when(smart.fetchBinary(doc.resource.content[0].attachment.url)).then(function (blob) {
-                                              alert(doc_list, doc.resource.description, blob);
-                                          });
-                                      });
-                                  });
-                              } else {
-                                  alert("<li><h3>No documents found</h3></li>");
-                              }
-                          });
-
                           ret.resolve(p); 
                     }
                 );
