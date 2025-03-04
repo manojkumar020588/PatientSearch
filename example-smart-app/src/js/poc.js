@@ -23,11 +23,14 @@
                           ret.resolve(p); 
                     }
                 );
-                
+                FHIR.client("https://r2.smarthealthit.org")
+                .request("Binary/smart-Binary-1-document")
+                .then(res => res.blob())
                 // Get MedicationRequests for the selected patient
-                const client1  = new FHIR.client("https://r3.smarthealthit.org");
-                const getPath = client1.getPath;
-                client1.request("/MedicationRequest?Patient=smart-1642068", {
+             
+                const getPath = FHIR.client("https://r3.smarthealthit.org").getPath;
+                FHIR.client("https://r2.smarthealthit.org")
+                .request("/MedicationRequest?Patient=smart-1642068", {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
                 }).then(data => data.entry.map(item => getMedicationName(
