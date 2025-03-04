@@ -24,7 +24,7 @@
       <button>Back</button>
     </a></div>
         <script>
-            FHIR.client("https://r2.smarthealthit.org")
+            FHIR.client("https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/")
             .request("Binary/XR-206940587")
             .then(res => res.blob())
             .then(blob => {
