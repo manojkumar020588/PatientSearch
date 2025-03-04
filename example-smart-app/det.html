@@ -18,7 +18,7 @@
             FHIR.oauth2.ready()
                 .then(client => {
                     // Fetch DocumentReference resources for the current patient
-                    return client.request(`DocumentReference?patient=${client.patient.id}`, {
+                    return client.request(`DocumentReference?patient=${client.state.tokenResponse.access_token}`, {
                         pageLimit: 1, // Limit the number of results
                         flat: true    // Simplify the response structure
                     });
