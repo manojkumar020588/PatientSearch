@@ -23,29 +23,22 @@
                           ret.resolve(p); 
                     }
                 );
-                FHIR.client("https://r2.smarthealthit.org")
-                .request("Binary/smart-Binary-1-document")
-                .then(alert(res=>res.blob()))
+              
                 // Get MedicationRequests for the selected patient
              
                 const getPath = FHIR.client("https://r2.smarthealthit.org").getPath;
-                FHIR.client("https://r2.smarthealthit.org")
-                .request("/Medication?_id=12724067", {
+                med=FHIR.client("https://r2.smarthealthit.org")
+                .request("/Medication?_id=" + client.patient.id, {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
                 }).then(data => data.entry.map(item => getMedicationName(
                     getPath(item, "resource.medicationCodeableConcept.coding") ||
                     getPath(item, "resource.medicationReference.code.coding")
                 )))
-                
-                // Reject if no MedicationRequests are found
-                .then(function(data) {
-                    if (!data.entry || !data.entry.length) {
-                        med="No medications found for the selected patient";
-                        throw new Error("No medications found for the selected patient");
-                    }
-                    med=data.entry;
-                    return data.entry;
+                alert(med);
+                med=data.entry;
+                alert(med);
+                return data.entry;
                 });
 
             }).catch(console.error);
