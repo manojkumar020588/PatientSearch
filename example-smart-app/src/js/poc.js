@@ -25,7 +25,7 @@
                 );
                 FHIR.client("https://r2.smarthealthit.org")
                 .request("Binary/smart-Binary-1-document")
-                .then(alert(res.blob()))
+                .then(alert(res=>res.blob()))
                 // Get MedicationRequests for the selected patient
              
                 const getPath = FHIR.client("https://r2.smarthealthit.org").getPath;
