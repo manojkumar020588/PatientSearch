@@ -13,10 +13,11 @@
     <pre id="output"></pre>
 
     <script>
+        var tok='';
         document.getElementById('fetchDocuments').addEventListener('click', function () {
             // Initialize the SMART on FHIR client
             FHIR.oauth2.ready()
-                var tok='';
+                
                 .then(client => {
                     // Fetch DocumentReference resources for the current patient
                     tok=${client.state.tokenResponse.access_token};
