@@ -19,7 +19,7 @@
                 .then(client => {
                     // Fetch DocumentReference resources for the current patient
                     return client.request(`DocumentReference?patient=${client.patient.id}`, {
-                        pageLimit: 10, // Limit the number of results
+                        pageLimit: 1, // Limit the number of results
                         flat: true    // Simplify the response structure
                     });
                 })
