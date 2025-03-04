@@ -28,7 +28,7 @@
                     const output = document.getElementById('output');
                     output.textContent = JSON.stringify(data, null, 2);
                     console.log('Documents:', data);
-                    console.log("token-",${client.state.tokenResponse.access_token});
+                    console.log("token-",client.state.tokenResponse.access_token);
                     // Optionally, fetch the content of each document
                     data.forEach(documentRef => {
                         const documentUrl = documentRef.content[0].attachment.url;
