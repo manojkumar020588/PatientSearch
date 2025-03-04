@@ -18,21 +18,23 @@
                           p.gender = gender;
                           p.fname = fname;
                           p.lname = lname;
-                          p.j=JSON.stringify(pt,undefined,2);
+                      
+                          var docr='No document reference(s) found!';
+                          client.request("DocumentReference?patient=" + client.patient.id,{
+                            pageLimit:1,
+                            flat:true
+                          }).then(data=>{
+                            console.log('doc ref:',data);
+                            docr=data;
+                          }).catch(error=>{
+                            console.error('Error:',error);
+                          });
+                          p.docr=JSON.stringify(docr,undefined,2);
                           ret.resolve(p); 
                     }
                 );
                                      
-                  var docr='No document reference(s) found!';
-                  client.request("DocumentReference?patient=" + client.patient.id,{
-                    pageLimit:3,
-                    flat:true
-                  }).then(data=>{
-                    console.log('doc ref:',data);
-                    docr=JSON.stringify(data,undefined,2);
-                  }).catch(error=>{
-                    console.error('Error:',error);
-                  });
+                  
                   
       
                 // Get MedicationRequests for the selected patient
@@ -54,7 +56,7 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
-      j: {value: ''},
+      docr: {value: ''},
     };
   }
 
@@ -65,8 +67,7 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#docr').html(docr);
-    $('#j').html(p.j);
+    $('#docr').html(p.docr);
   };
 
 })(window);
