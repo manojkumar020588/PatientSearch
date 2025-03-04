@@ -13,7 +13,6 @@
                           var fname = pt.name[0].given.join(' ');
                           var lname = pt.name[0].family.join(' ');
                           var gender = pt.gender;
-                         
                           var p = defaultPatient();
                           p.birthdate = pt.birthDate;
                           p.gender = gender;
@@ -25,31 +24,18 @@
                 );
               
                 // Get MedicationRequests for the selected patient
-             
                 const getPath = FHIR.client("https://r2.smarthealthit.org").getPath;
                 med=FHIR.client("https://r2.smarthealthit.org")
                 .request("/Medication?_id=" + client.patient.id, {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
-                }).then(data => data.entry.map(item => getMedicationName(
-                    getPath(item, "resource.medicationCodeableConcept.coding") ||
-                    getPath(item, "resource.medicationReference.code.coding")
-                )));
+                });
                 alert(med);
-                
                 return med;
-        
-
-            }).catch(console.error);
-                   
+            }).catch(console.error);             
     return ret.promise();
-
   };
   
-  function getMedicationName(medCodings = []) {
-    var coding = medCodings.find(c => c.system === rxnorm);
-    return coding && coding.display || "Unnamed Medication(TM)";
-  }
   function defaultPatient(){
     return {
       fname: {value: ''},
