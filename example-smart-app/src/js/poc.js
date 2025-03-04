@@ -25,10 +25,15 @@
                 );
                 
                 // Get MedicationRequests for the selected patient
+                const client  = new FHIR.client("https://r3.smarthealthit.org");
+                const getPath = client.getPath;
                 client.request("/MedicationRequest?Patient=smart-1642068", {
                     resolveReferences: [ "medicationReference" ],
                     graph: true
-                })
+                }).then(data => data.entry.map(item => getMedicationName(
+                    getPath(item, "resource.medicationCodeableConcept.coding") ||
+                    getPath(item, "resource.medicationReference.code.coding")
+                )))
                 
                 // Reject if no MedicationRequests are found
                 .then(function(data) {
@@ -45,7 +50,11 @@
     return ret.promise();
 
   };
-
+  
+  function getMedicationName(medCodings = []) {
+    var coding = medCodings.find(c => c.system === rxnorm);
+    return coding && coding.display || "Unnamed Medication(TM)";
+  }
   function defaultPatient(){
     return {
       fname: {value: ''},
