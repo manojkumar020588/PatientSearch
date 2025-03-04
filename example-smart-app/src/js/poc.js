@@ -30,13 +30,9 @@
                 .request("/Medication?_id=" + client.patient.id, {
                     resolveReferences: [ "medication" ],
                     graph: true
-                }).then(data => data.entry.map(item => getMedicationName(
-                  getPath(item, "resource.medicationCodeableConcept.coding") ||
-                  getPath(item, "resource.medicationReference.code.coding")
-                  ))).then(med=>JSON.stringify(data, null, 4));
-                alert("a",med);
-                alert("b",data);
-                return med;
+                });
+                alert("a",JSON.stringify(med, null, 4));
+                
             }).catch(console.error);             
     return ret.promise();
   };
