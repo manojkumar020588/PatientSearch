@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
     <!--<script src='./lib/js/fhir-client-v0.1.12.js'></script>-->
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
-    <div style=" padding-left: 20 px !important; " >
+    <div style='border-style: groove;'>
     <h1> Select a Patient to test</h1>
     <br>
     <a  href='https://smart.cerner.com/smart/ec2458f2-1e24-41c8-b71b-0e701af7583d/apps/d47c7783-de28-4133-8395-42ae501e8e32/?username=portal&PAT_PersonId=12724069'>
@@ -40,14 +40,16 @@
       <button class="sbutton">Fetch a Sample Document</button>
     </a>
     <br><br><br>
-<form action='https://smart.cerner.com/smart/ec2458f2-1e24-41c8-b71b-0e701af7583d/apps/d47c7783-de28-4133-8395-42ae501e8e32/?'>
-  <h2> Or Manually enter details of a Patient to test</h2><br><br>
-  <label for="PAT_PersonId">Patient Id:</label><br>
-  <input type="text" id="PAT_PersonId" name="PAT_PersonId"><br>
-  <label for="username">Cerner Username:</label><br>
-  <input type="text" id="username" name="username"><br><br>
-  <input class = 'pbutton' type="submit" value="Fetch Patient Details">
-</form>
+      <div style='border-style: groove;'>
+      <form action='https://smart.cerner.com/smart/ec2458f2-1e24-41c8-b71b-0e701af7583d/apps/d47c7783-de28-4133-8395-42ae501e8e32/?'>
+        <h2> Or Manually enter details of a Patient to test</h2><br><br>
+        <label for="PAT_PersonId">Patient Id:</label><br>
+        <input type="text" id="PAT_PersonId" name="PAT_PersonId"><br>
+        <label for="username">Cerner Username:</label><br>
+        <input type="text" id="username" name="username"><br><br>
+        <input class = 'pbutton' type="submit" value="Fetch Patient Details">
+      </form>
+      </div>
    
    
     </div>
