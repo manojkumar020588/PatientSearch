@@ -25,8 +25,7 @@
 <head>
   <title>SMART Launch</title>
   <script>
-     <!-- Application-level javascript-->
-    <script src='./src/js/node.js'></script>
+   
     // Extract parameters from URL
     const params = new URLSearchParams(window.location.search);
     const launch = params.get('launch');
@@ -35,6 +34,8 @@
     // Forward to your backend server
     window.location.href = `/backend-auth?launch=${encodeURIComponent(launch)}&iss=${encodeURIComponent(iss)}`;
   </script>
+    <!-- Application-level javascript-->
+    <script src='./src/js/node.js'></script>
 </head>
 <body>
   <p>Redirecting to authorization server...</p>
