@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -17,49 +17,4 @@
       });
     </script>
   </body>
-</html>-->
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SMART EHR Launch</title>
-    <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
-    <script>
-        // Modified to use confidential client flow with backend token exchange
-        function launchApp() {
-            FHIR.oauth2.authorize({
-                // Your registered client ID
-                clientId: 'd9a79904-a8d5-4917-95ee-a535c9ece724',
-                
-                // Scopes your app needs
-                scope: 'patient/Patient.read patient/Binary.read patient/*.* patient/Questionnaire.read patient/QuestionnaireResponse.read patient/DocumentReference.read launch/patient patient/Observation.read patient/Medication.read patient/MedicationRequest.read launch online_access openid profile',
-                
-                // Redirect URI must match your registration
-                redirectUri: './app.html',
-                
-                // Indicate this is a confidential client
-                clientType: 'confidential',
-                
-                // Optional: Set this if you know the issuer URL
-                // iss: 'https://fhir.epic.com/interconnect-fhir-oauth/api/FHIR/R4',
-                
-                // Add PKCE for additional security (recommended)
-                pkceMode: 'S256',
-                
-                // Your backend endpoint for token exchange
-                completeInTarget: true,
-                tokenExchangeEndpoint: 'https://manojkumar020588.github.io/PatientSearch/example-smart-app/token'
-            });
-        }
-        
-        // Launch the app when the page loads
-        window.onload = launchApp;
-    </script>
-</head>
-<body>
-    <p>Launching SMART application...</p>
-</body>
 </html>
