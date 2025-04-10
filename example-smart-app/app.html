@@ -1,22 +1,47 @@
-FHIR.oauth2.ready()
-  .then(client => {
-    // Get the authorization code from URL
-    const code = new URLSearchParams(window.location.search).get('code');
-    
-    // Send to your backend for token exchange
-    return fetch('https://your-backend.com/token', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        code: code,
-        redirect_uri: window.location.href.split('?')[0],
-        iss: client.state.serverUrl
-      })
-    });
-  })
-  .then(response => response.json())
-  .then(tokenResponse => {
-    // Now you have the access token
-    console.log('Access token:', tokenResponse.access_token);
-    // Proceed with your app logic
-  });
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <link rel='stylesheet' type='text/css' href='./src/style.css'>
+    <title>Patient Search PoC</title>
+  </head>
+  <body>
+  
+  
+
+    <!-- FHIR Client JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
+
+    <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
+    <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+      FHIR.oauth2.ready()
+        .then(client => {
+          // Get the authorization code from URL
+          const code = new URLSearchParams(window.location.search).get('code');
+          
+          // Send to your backend for token exchange
+          return fetch('https://your-backend.com/token', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              code: code,
+              redirect_uri: window.location.href.split('?')[0],
+              iss: client.state.serverUrl
+            })
+          });
+        })
+        .then(response => response.json())
+        .then(tokenResponse => {
+          // Now you have the access token
+          console.log('Access token:', tokenResponse.access_token);
+          // Proceed with your app logic
+        });
+
+    </script>
+  </body>
+</html>
+
+
