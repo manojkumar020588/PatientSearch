@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express();
 
 // Your registered client credentials
-const CLIENT_ID = '6291f555-4548-4e26-830c-7f8e445612d0';
+const CLIENT_ID = 'd9a79904-a8d5-4917-95ee-a535c9ece724';
      
 const CLIENT_SECRET = 'your-client-secret'; // Keep this secure!
 const REDIRECT_URI = 'https://your-app.com/redirect';
