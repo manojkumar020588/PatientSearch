@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -12,32 +12,9 @@
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
     <script>
       FHIR.oauth2.authorize({
-        'client_id': '6291f555-4548-4e26-830c-7f8e445612d0',
+        'client_id': 'd9a79904-a8d5-4917-95ee-a535c9ece724',
         'scope':  'patient/Patient.read patient/Binary.read patient/*.* patient/Questionnaire.read patient/QuestionnaireResponse.read patient/DocumentReference.read launch/patient patient/Observation.read patient/Medication.read patient/MedicationRequest.read launch online_access openid profile'
       });
     </script>
   </body>
-</html>-->
-
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>SMART Launch</title>
-  <script>
-   
-    // Extract parameters from URL
-    const params = new URLSearchParams(window.location.search);
-    const launch = params.get('launch');
-    const iss = params.get('iss');
-    
-    // Forward to your backend server
-    window.location.href = `/backend-auth?launch=${encodeURIComponent(launch)}&iss=${encodeURIComponent(iss)}`;
-  </script>
-    <!-- Application-level javascript-->
-    <script src='./src/js/node.js'></script>
-</head>
-<body>
-  <p>Redirecting to authorization server...</p>
-</body>
 </html>
