@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
   <head> 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,7 +8,7 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/fhirclient/build/fhir-client.js"></script>
-    <!--<script src='./lib/js/fhir-client-v0.1.12.js'></script>-->
+  
     <script src='./lib/js/fhir-client-cerner-additions-1.0.0.js'></script>
     <script>
       FHIR.oauth2.authorize({
@@ -17,4 +17,24 @@
       });
     </script>
   </body>
+</html>-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SMART Launch</title>
+  <script>
+    // Extract parameters from URL
+    const params = new URLSearchParams(window.location.search);
+    const launch = params.get('launch');
+    const iss = params.get('iss');
+    
+    // Forward to your backend server
+    window.location.href = `/backend-auth?launch=${encodeURIComponent(launch)}&iss=${encodeURIComponent(iss)}`;
+  </script>
+</head>
+<body>
+  <p>Redirecting to authorization server...</p>
+</body>
 </html>
